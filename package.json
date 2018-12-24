@@ -13,6 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "vant": "^1.5.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
