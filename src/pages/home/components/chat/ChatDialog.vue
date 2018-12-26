@@ -1,29 +1,29 @@
 <template>
     <div class="container">
-        <div class="chatdialog-box">
-            <div class="dialog-other">
+        <div class="chatdialog-box" v-for="item of dialogData" :key="item.id">
+            <div class="dialog-other" v-show="item.type === 1">
                 <div class="other-time">
-                    昨天 19:00
+                    {{item.time}}
                 </div>
                 <div class="other-content">
                     <div class="other-content-avatar">
                         <img src="@/assets/temp/avatar_one.jpg" alt="">
                     </div>
                     <div class="other-content-text">
-                        我是other
+                        <span>{{item.text}}</span>
                     </div>
                 </div>
             </div>
-            <div class="dialog-me">
+            <div class="dialog-me" v-show="item.type === 2">
                 <div class="me-time">
-                    21:11
+                    {{item.time}}
                 </div>
                 <div class="me-content">
                     <div class="me-content-avatar">
                         <img src="@/assets/temp/avatar_two.jpg" alt="">
                     </div>
                     <div class="me-content-text">
-                        我是me
+                        <span>{{item.text}}</span>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,37 @@
 
 <script>
 export default {
-    name: "ChatDialog"
+    name: "ChatDialog",
+    data() {
+        return {
+            dialogData: [
+                {
+                    id: 0,
+                    type: 1,
+                    text: '你好',
+                    time: '17:00'
+                },
+                {
+                    id: 1,
+                    type: 1,
+                    text: '我是kinano',
+                    time: '17:02'
+                },
+                {
+                    id: 2,
+                    type: 2,
+                    text: 'hello,我是momTrue',
+                    time: '17:04',
+                },
+                {
+                    id: 3,
+                    type: 1,
+                    text: '很高兴认识你',
+                    time: '17:08'
+                }
+            ]
+        }
+    },
 }
 </script>
 
@@ -68,15 +98,33 @@ export default {
         border-radius: 5%;
     }
     .other-content-text {
+        position: relative;
         margin-top: 5px;
         margin-left: 10px;
         border-radius: 2px;
-        min-width: 130px;
+        min-width: 20px;
         max-width: 220px;
         height: 100%;
-        min-height: 40px;
+        min-height: 30px;
         background-color: #4494D5;
         color: #FFFFFF;
+        font-size: 14px;
+        line-height: 20px;
+        word-break: break-all;
+    }
+    .other-content-text span {
+        display: inline-block;
+        margin: 5px;
+    }
+    .other-content-text:before {
+        position: absolute;
+        left: -24px;
+        top: 5px;
+        content: '';
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-left: 12px solid transparent;
+        border-right: 12px solid #4494D5;
     }
 
     /*
@@ -109,15 +157,35 @@ export default {
         border-radius: 5%;
     }
     .me-content-text {
+        display: flex;
+        flex-direction: row-reverse;
+        position: relative;
         margin-top: 5px;
         margin-right: 10px;
         border-radius: 2px;
-        min-width: 130px;
+        min-width: 20px;
         max-width: 220px;
         height: 100%;
-        min-height: 40px;
+        min-height: 30px;
         background-color: #B0E36F;
         color: #FFFFFF;
+        font-size: 14px;
+        line-height: 20px;
+        word-break: break-all;
+    }
+    .me-content-text span {
+        display: inline-block;
+        margin: 5px;
+    }
+    .me-content-text:after {
+        position: absolute;
+        right: -23px;
+        top: 5px;
+        content: '';
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 12px solid transparent;
+        border-left: 12px solid #B0E36F;
     }
 </style>
 
