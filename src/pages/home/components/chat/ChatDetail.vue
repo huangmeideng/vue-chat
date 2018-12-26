@@ -7,17 +7,17 @@
                     fixed>
             <van-icon name="ellipsis" slot="right" size="25px"/>
         </van-nav-bar>
-        <div class="chat-detail-box">
-            <chat-dialog></chat-dialog>
+        <div class="chat-detail-box" ref="bscroll">
+            <chat-dialog :dialogData="dialogData"></chat-dialog>
         </div>
         <div class="chat-footer">
             <div class="footer-left">
                 <van-icon  class="left-emoji" name="smile-o" size="30px" color="#E56A20"/>
             </div>
             <div class="footer-center">
-                <input class="center-input" type="text" placeholder="biu~biu~">
+                <input class="center-input" type="text" placeholder="biu~biu~" v-model="inputValue">
             </div>
-            <div class="footer-right">
+            <div class="footer-right" @click="onSendChat">
                 <div class="right-button">
                     发送
                 </div>
@@ -27,20 +27,70 @@
 </template>
 
 <script>
-import { NavBar, Icon } from "vant"
+import { NavBar, Icon, Toast } from "vant"
 import ChatDialog from "./ChatDialog"
+import utils from "@/utils"
+import Bscroll from "better-scroll"
 export default {
     name: 'ChatDetail',
     components: {
         NavBar,
         Icon,
+        Toast,
         ChatDialog
+    },
+    data() {
+        return {
+            inputValue: '',
+            dialogData: [
+                {
+                    id: 0,
+                    type: 1,
+                    text: '你好',
+                    time: '17:00'
+                },
+                {
+                    id: 1,
+                    type: 1,
+                    text: '我是kinano',
+                    time: '17:02'
+                },
+                {
+                    id: 2,
+                    type: 2,
+                    text: 'hello,我是momTrue',
+                    time: '17:04',
+                },
+                {
+                    id: 3,
+                    type: 1,
+                    text: '很高兴认识你',
+                    time: '17:08'
+                }
+            ]
+        }
     },
     methods: {
         onBack() {
             this.$router.push('/')
+        },
+        onSendChat() {
+            if(this.inputValue === '') {
+                Toast('请输入内容')
+            } else{
+                let chatContent = {
+                    type: 2,
+                    text: this.inputValue,
+                    time: utils.getNowTime()
+                }
+                this.dialogData.push(chatContent)
+                this.inputValue = ''
+            }
         }
-    }
+    },
+    mounted() {
+        this.scroll = new Bscroll(this.$refs.bscroll)
+    },
 }
 </script>
 

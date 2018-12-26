@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="chatdialog-box" v-for="item of dialogData" :key="item.id">
+        <div class="chatdialog-box" v-for="(item, index) of dialogData" :key="index">
             <div class="dialog-other" v-show="item.type === 1">
                 <div class="other-time">
                     {{item.time}}
@@ -34,34 +34,12 @@
 <script>
 export default {
     name: "ChatDialog",
+    props: {
+        dialogData: Array
+    },
     data() {
         return {
-            dialogData: [
-                {
-                    id: 0,
-                    type: 1,
-                    text: '你好',
-                    time: '17:00'
-                },
-                {
-                    id: 1,
-                    type: 1,
-                    text: '我是kinano',
-                    time: '17:02'
-                },
-                {
-                    id: 2,
-                    type: 2,
-                    text: 'hello,我是momTrue',
-                    time: '17:04',
-                },
-                {
-                    id: 3,
-                    type: 1,
-                    text: '很高兴认识你',
-                    time: '17:08'
-                }
-            ]
+
         }
     },
 }
