@@ -7,7 +7,7 @@
                     fixed>
             <van-icon name="ellipsis" slot="right" size="25px"/>
         </van-nav-bar>
-        <div class="chat-detail-box" ref="bscroll">
+        <div class="chat-detail-box" ref="bscroll" :style="{height: scrollHeight + 'px'}">
             <chat-dialog :dialogData="dialogData"></chat-dialog>
         </div>
         <div class="chat-footer">
@@ -42,6 +42,7 @@ export default {
     data() {
         return {
             inputValue: '',
+            clientHeight: document.documentElement.clientHeight,
             dialogData: [
                 {
                     id: 0,
@@ -70,9 +71,14 @@ export default {
             ]
         }
     },
+    computed: {
+        scrollHeight () {
+            return this.clientHeight - 46 - 60
+        }
+    },
     methods: {
         onBack() {
-            this.$router.push('/')
+            this.$router.push('/home/')
         },
         onSendChat() {
             if(this.inputValue === '') {
@@ -109,6 +115,7 @@ export default {
         color: #FFFFFF;
     }
     .chat-detail-box {
+        overflow: hidden;
         margin-top: 46px;
     }
     .chat-footer {
@@ -135,6 +142,8 @@ export default {
         width: 230px;
     }
     .center-input {
+        box-sizing: border-box;
+        padding: 0 5px;
         border-bottom: 1px solid #4494D5;
         width: 200px;
         height: 40px;
