@@ -1,12 +1,12 @@
 <template>
     <div>
         <van-nav-bar title="vue聊" fixed class="nav-header"></van-nav-bar>
-        <div class="tab-box" ref="bscroll" :style="{height: scrollHeight + 'px'}">
+        <v-touch tag="div" @swipeleft="onSwipeLeft(active)"  @swiperight="onSwipeRight(active)" class="tab-box"   ref="bscroll" :style="{height: scrollHeight + 'px'}">
             <chat-list v-if="active === 0"></chat-list>
             <address-list v-if="active === 1"></address-list>
             <community v-if="active === 2"></community>
             <my v-if="active === 3"></my>
-        </div>
+        </v-touch>
         <van-tabbar v-model="active" @change="onChangeTab">
             <van-tabbar-item icon="chat-o">聊天</van-tabbar-item>
             <van-tabbar-item icon="phone-circle-o" dot>通讯录</van-tabbar-item>
@@ -53,12 +53,30 @@ export default {
     methods: {
         initScroll () {
             this.$nextTick( () => {
-                this.scroll = new Bscroll(this.$refs.bscroll,this.scrollOptions)
+                this.scroll = new Bscroll(document.querySelector('.tab-box'),this.scrollOptions)
             })
         },
         onChangeTab () {
             this.scroll = null
             this.initScroll()
+        },
+        onSwipeLeft(e) {
+            if ( e >= 3 ) {
+                return;
+            } else{
+                this.active = e + 1
+                this.scroll = null
+                this.initScroll()
+            }
+        },
+        onSwipeRight(e) {
+            if ( e <= 0 ) {
+                return;
+            } else{
+                this.active = e - 1
+                this.scroll = null
+                this.initScroll()
+            }
         }
     },
     mounted() {

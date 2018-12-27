@@ -4,11 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vant from 'vant'
+import VueTouch from 'vue-touch'
 import 'vant/lib/index.css'
 import './assets/style/css/reset.css'
 
 Vue.config.productionTip = false
-Vue.use(Vant)
+Vue.use(Vant).use(VueTouch,{name:'v-touch'})
 
 /* eslint-disable no-new */
 new Vue({
