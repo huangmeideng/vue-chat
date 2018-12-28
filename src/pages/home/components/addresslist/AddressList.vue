@@ -6,17 +6,20 @@
         <div class="address-body">
             <address-contact></address-contact>
         </div>
+        <address-letter></address-letter>
     </div>
 </template>
 
 <script>
 import AddressListItem from "./AddressListItem"
 import AddressContact from "./AddressContact"
+import AddressLetter from "./AddressLetter"
 export default {
     name: "AddressList",
     components: {
         AddressListItem,
-        AddressContact
+        AddressContact,
+        AddressLetter
     },
     data() {
         return {
