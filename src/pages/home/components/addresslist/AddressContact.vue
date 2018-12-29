@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="Contact-item" v-for="(item,index) of contactData" :key="index">
+        <div v-for="(item,index) of contactData" :key="index" :class=" 'letter-'+ item.letter">
             <div class="item-letter">
                 <span>{{item.letter}}</span>
             </div>
@@ -205,6 +205,9 @@ export default {
                 }
             ]
         }
+    },
+    mounted() {
+        
     },
 }
 </script>

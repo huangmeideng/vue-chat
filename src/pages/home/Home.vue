@@ -3,10 +3,11 @@
         <van-nav-bar title="vue聊" fixed class="nav-header"></van-nav-bar>
         <v-touch tag="div" @swipeleft="onSwipeLeft(active)"  @swiperight="onSwipeRight(active)" class="tab-box"   ref="bscroll" :style="{height: scrollHeight + 'px'}">
             <chat-list v-if="active === 0"></chat-list>
-            <address-list v-if="active === 1"></address-list>
+            <address-list v-if="active === 1" :currentLetter="currentLetter"></address-list>
             <community v-if="active === 2"></community>
             <my v-if="active === 3"></my>
         </v-touch>
+        <common-letter v-show="active === 1" @change="onClickLetter" @touchLetter="onTouchLetter"></common-letter>
         <van-tabbar v-model="active" @change="onChangeTab">
             <van-tabbar-item icon="chat-o">聊天</van-tabbar-item>
             <van-tabbar-item icon="phone-circle-o" dot>通讯录</van-tabbar-item>
@@ -23,6 +24,7 @@ import AddressList from './components/addresslist/AddressList'
 import Community from './components/community/Community'
 import My from './components/my/My'
 import Bscroll from "better-scroll"
+import CommonLetter from '../../common/CommonLetter'
 export default {
     name: "Home",
     components: {
@@ -34,7 +36,8 @@ export default {
         ChatList,
         AddressList,
         Community,
-        My
+        My,
+        CommonLetter
     },
     data() {
         return {
@@ -42,7 +45,8 @@ export default {
             clientHeight: document.documentElement.clientHeight,
             scrollOptions: {
                 click: true
-            }
+            },
+            currentLetter: ''
         }
     },
     computed: {
@@ -50,16 +54,45 @@ export default {
             return this.clientHeight - 46 - 50
         }
     },
+    watch: {
+        currentLetter () {
+            if (this.currentLetter) {
+                let elementClass = ".letter-" + this.currentLetter
+                this.scroll.scrollToElement(document.querySelector(elementClass))
+            }
+        }
+    },
     methods: {
+        /**
+         * 点击字母事件
+         */
+        onClickLetter (e) {
+            this.currentLetter = e
+        },
+        /**
+         * 触摸字母事件
+         */
+        onTouchLetter (e) {
+            this.currentLetter = e
+        },
+        /**
+         * better-scroll初始化事件
+         */
         initScroll () {
             this.$nextTick( () => {
                 this.scroll = new Bscroll(document.querySelector('.tab-box'),this.scrollOptions)
             })
         },
+        /**
+         * 点击底部Tab事件
+         */
         onChangeTab () {
             this.scroll = null
             this.initScroll()
         },
+        /**
+         * 左滑事件
+         */
         onSwipeLeft(e) {
             if ( e >= 3 ) {
                 return;
@@ -69,6 +102,9 @@ export default {
                 this.initScroll()
             }
         },
+        /**
+         * 右滑事件
+         */
         onSwipeRight(e) {
             if ( e <= 0 ) {
                 return;
