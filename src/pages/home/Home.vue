@@ -7,7 +7,8 @@
             <community v-if="active === 2"></community>
             <my v-if="active === 3"></my>
         </v-touch>
-        <common-letter v-show="active === 1" @change="onClickLetter" @touchLetter="onTouchLetter"></common-letter>
+        <common-letter-box v-show="showLetterBox" :letter="currentLetter"></common-letter-box>
+        <common-letter v-show="active === 1" @change="onClickLetter" @touchLetter="onTouchLetter" @touchStart="onTouchBoxStart" @touchEnd="onTouchBoxEnd"></common-letter>
         <van-tabbar v-model="active" @change="onChangeTab">
             <van-tabbar-item icon="chat-o">聊天</van-tabbar-item>
             <van-tabbar-item icon="phone-circle-o" dot>通讯录</van-tabbar-item>
@@ -25,6 +26,7 @@ import Community from './components/community/Community'
 import My from './components/my/My'
 import Bscroll from "better-scroll"
 import CommonLetter from '../../common/CommonLetter'
+import CommonLetterBox from '../../common/CommonLetterBox'
 export default {
     name: "Home",
     components: {
@@ -37,7 +39,8 @@ export default {
         AddressList,
         Community,
         My,
-        CommonLetter
+        CommonLetter,
+        CommonLetterBox
     },
     data() {
         return {
@@ -46,7 +49,8 @@ export default {
             scrollOptions: {
                 click: true
             },
-            currentLetter: ''
+            currentLetter: '',
+            showLetterBox: false
         }
     },
     computed: {
@@ -113,6 +117,18 @@ export default {
                 this.scroll = null
                 this.initScroll()
             }
+        },
+        /**
+         *  触摸开始显示中间字母box 
+         */
+        onTouchBoxStart () {
+            this.showLetterBox = true
+        },
+        /**
+         *  触摸结束隐藏中间字母box   
+         */
+        onTouchBoxEnd () {
+            this.showLetterBox = false
         }
     },
     mounted() {

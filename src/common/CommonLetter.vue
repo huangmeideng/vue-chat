@@ -6,7 +6,8 @@
             @click="onClickLetter(item)"
             @touchstart="onTouchStart"
             @touchmove="onTouchMove"
-            @touchend="onTouchEnd">
+            @touchend="onTouchEnd"
+            :class="{ active: classActive }">
             {{item}}
         </li>
     </ul>
@@ -20,6 +21,8 @@ export default {
             letterData: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
             touchStatus: false,
             startY: 0,
+            timer: null,
+            classActive: false,
             timer: null
         }
     },
@@ -35,16 +38,22 @@ export default {
          */
         onTouchStart () {
             this.touchStatus = true
+            this.classActive = true
+            this.$emit('touchStart')
         },
         /**
          * 手指触摸滑动事件
          */
         onTouchMove (e) {
             if (this.touchStatus) {
-                //console.log(e.touches[0].clientY)
-                let index = Math.floor((e.touches[0].clientY - 80) / 20)
-                let letter = this.letterData[index]
-                this.$emit('touchLetter',letter)
+                if (this.timer) {
+                    clearTimeout(this.timer)
+                }
+                this.timer = setTimeout( () => {
+                    let index = Math.floor( (e.touches[0].clientY -80) / 20)
+                    let letter = this.letterData[index]
+                    this.$emit('touchLetter',letter)
+                },16)
             }
         },
         /**
@@ -52,6 +61,8 @@ export default {
          */
         onTouchEnd () {
             this.touchStatus = false
+            this.classActive = false
+            this.$emit('touchEnd')
         }
     }
 }
@@ -69,6 +80,9 @@ export default {
     .list-item {
         text-align: center;
         line-height: 20px;
+    }
+    .active {
+        background: rgba(46, 46, 46, .5)
     }
 </style>
 
