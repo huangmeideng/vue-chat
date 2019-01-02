@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link v-for="item of listData" tag="div" class="address-list-item" :to="item.to" :key="item.id">
+        <router-link v-for="item of listData" tag="div" class="address-list-item" :to="item.to" :key="item.id" :detailData="item">
             <img :src="item.iconUrl" alt="">
             <div class="item-title">
                 <span>{{item.title}}</span>

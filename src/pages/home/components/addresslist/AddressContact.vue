@@ -26,7 +26,7 @@ export default {
                             id: 1,
                             iconUrl: require("@/assets/temp/avatar_0.jpg"),
                             title: "Annayi",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/1",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -34,7 +34,7 @@ export default {
                             id: 2,
                             iconUrl: require("@/assets/temp/avatar_1.jpg"),
                             title: "Amio",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/2",
                             tipShow: false,
                             tipCount: 0
                         }
@@ -47,7 +47,7 @@ export default {
                             id: 3,
                             iconUrl: require("@/assets/temp/avatar_2.jpeg"),
                             title: "邦迪",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/3",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -55,7 +55,7 @@ export default {
                             id: 4,
                             iconUrl: require("@/assets/temp/avatar_3.jpg"),
                             title: "本杰明",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/4",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -63,7 +63,7 @@ export default {
                             id: 5,
                             iconUrl: require("@/assets/temp/avatar_4.jpg"),
                             title: "贝克",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/5",
                             tipShow: false,
                             tipCount: 0
                         }
@@ -76,7 +76,7 @@ export default {
                             id: 13,
                             iconUrl: require("@/assets/temp/avatar_11.jpg"),
                             title: "陈陈",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/13",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -84,7 +84,7 @@ export default {
                             id: 14,
                             iconUrl: require("@/assets/temp/avatar_12.jpg"),
                             title: "CsdOO--3",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/14",
                             tipShow: false,
                             tipCount: 0
                         }
@@ -97,7 +97,7 @@ export default {
                             id: 15,
                             iconUrl: require("@/assets/temp/avatar_14.jpg"),
                             title: "黄美登",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/15",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -105,7 +105,7 @@ export default {
                             id: 16,
                             iconUrl: require("@/assets/temp/avatar_13.jpg"),
                             title: "Himdad",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/16",
                             tipShow: false,
                             tipCount: 0
                         }
@@ -118,7 +118,7 @@ export default {
                             id: 6,
                             iconUrl: require("@/assets/temp/avatar_one.jpg"),
                             title: "Kinano",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/6",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -126,7 +126,7 @@ export default {
                             id: 12,
                             iconUrl: require("@/assets/temp/avatar_10.jpeg"),
                             title: "可le",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/12",
                             tipShow: false,
                             tipCount: 0
                         }
@@ -139,7 +139,7 @@ export default {
                             id: 7,
                             iconUrl: require("@/assets/temp/avatar_7.jpg"),
                             title: "momTrue",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/7",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -147,7 +147,7 @@ export default {
                             id: 8,
                             iconUrl: require("@/assets/temp/avatar_5.jpeg"),
                             title: "梦",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/8",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -155,7 +155,7 @@ export default {
                             id: 9,
                             iconUrl: require("@/assets/temp/avatar_6.jpg"),
                             title: "魅力",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/9",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -168,7 +168,7 @@ export default {
                             id: 17,
                             iconUrl: require("@/assets/temp/avatar_15.jpg"),
                             title: "孙大翠",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/17",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -176,7 +176,7 @@ export default {
                             id: 18,
                             iconUrl: require("@/assets/temp/avatar_16.jpg"),
                             title: "孙影儿",
-                            to: "/chat/detail",
+                            to: "/addresslist/addressdetail/18",
                             tipShow: false,
                             tipCount: 0
                         }
@@ -189,7 +189,7 @@ export default {
                             id: 10,
                             iconUrl: require("@/assets/temp/avatar_8.jpeg"),
                             title: "悟空",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/10",
                             tipShow: false,
                             tipCount: 0
                         },
@@ -197,7 +197,7 @@ export default {
                             id: 11,
                             iconUrl: require("@/assets/temp/avatar_9.jpg"),
                             title: "无悔",
-                            to: "/chat/detail/",
+                            to: "/addresslist/addressdetail/11",
                             tipShow: false,
                             tipCount: 0
                         }

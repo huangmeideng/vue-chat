@@ -90,7 +90,8 @@ export default {
         /**
          * 点击底部Tab事件
          */
-        onChangeTab () {
+        onChangeTab (e) {
+            console.log(e)
             this.scroll = null
             this.initScroll()
         },
@@ -131,7 +132,7 @@ export default {
             this.showLetterBox = false
         }
     },
-    mounted() {
+    mounted(e) {
         this.initScroll()
     },
 }
