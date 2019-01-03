@@ -90,9 +90,8 @@ export default {
         /**
          * 点击底部Tab事件
          */
-        onChangeTab (e) {
-            console.log(e)
-            this.scroll = null
+        onChangeTab () {
+            this.scroll.destroy()
             this.initScroll()
         },
         /**
@@ -103,7 +102,7 @@ export default {
                 return;
             } else{
                 this.active = e + 1
-                this.scroll = null
+                this.scroll.destroy()
                 this.initScroll()
             }
         },
@@ -115,7 +114,7 @@ export default {
                 return;
             } else{
                 this.active = e - 1
-                this.scroll = null
+                this.scroll.destroy()
                 this.initScroll()
             }
         },
@@ -146,6 +145,7 @@ export default {
     .tab-box {
         overflow: hidden;
         margin-top:46px;
+        background-color: #EBEAEA;
     }
 </style>
 

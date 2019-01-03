@@ -40,6 +40,7 @@ export default {
         width: 100%;
         height: 80px;
         border: 1px solid #E5E4E4;
+        background-color: #FFFFFF;
     }
     .chat-left {
         height: 80px;

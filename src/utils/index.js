@@ -5,6 +5,9 @@ function getNowTime(params) {
     return hour + ':' + min
 }
 
+/**
+ * 获取随机颜色
+ */
 function getRandomColor() {
     const rgb = []
     for (let i = 0; i < 3; ++i) {
@@ -15,7 +18,23 @@ function getRandomColor() {
     return '#' + rgb.join('')
 }
 
+/**
+ * 一位数组转二维数组
+ */
+function oneArrayToTwoArray(arr,num) {
+    let arrLen = Math.ceil(arr.length / num)
+    let twoArr = new Array(arrLen)
+    for (let i=0; i < arrLen; i++) {
+        twoArr[i] = new Array()
+    }
+    for( let j=0; j < arr.length; j++) {
+        twoArr[parseInt(j/num)][j%num] = arr[j]
+    }
+    return twoArr
+}
+
 export default {
     getNowTime,
-    getRandomColor
+    getRandomColor,
+    oneArrayToTwoArray
 }
