@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="uploader-box">
-            <!-- <img  v-for="(item,index) of imgs" :key="index" class="img-item" :src="item" alt="" @click="onImagePreview(index)"> -->
+            <img  v-for="(item,index) of imgs" :key="index" class="img-item" :src="item" alt="" @click="onImagePreview(index)">
             <!-- <van-uploader :after-read="onRead">
                 <van-icon name="photograph" />
             </van-uploader> -->
@@ -50,7 +50,7 @@ export default {
     }
     .uploader-box {
         width: 342px;
-        height: 100px;
+        /* height: 100px; */
     }
     .img-item {
         width: 110px;
