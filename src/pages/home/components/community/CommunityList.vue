@@ -1,20 +1,20 @@
 <template>
     <div class="container">
-        <div class="list-item">
+        <div class="list-item" v-for="item of listData" :key="item.id">
             <div class="item-left">
-                <img :src="listData[0].avatar" alt="">
+                <img :src="item.avatar" alt="">
             </div>
             <div class="item-right">
                 <div class="right-name">
-                    {{listData[0].name}}
+                    {{item.name}}
                 </div>
                 <div class="right-text">
-                    {{listData[0].text}}
+                    {{item.text}}
                 </div>
-                <community-imgs :imgs="listData[0].imgs"></community-imgs>
+                <community-imgs :imgs="item.imgs"></community-imgs>
                 <div class="right-footer">
                     <div class="footer-time">
-                        {{listData[0].time}}
+                        {{item.time}}
                     </div>
                 </div>
             </div>
@@ -37,6 +37,24 @@ export default {
                     avatar: require("@/assets/temp/avatar_one.jpg"),
                     name: "Kinano",
                     text: '我是文字内容我收拾收拾收拾那你想叫你小激动呢小激动呢',
+                    imgs: [
+                        require("@/assets/temp/fr/1.jpg"),
+                        require("@/assets/temp/fr/2.jpg"),
+                        require("@/assets/temp/fr/3.jpg"),
+                        require("@/assets/temp/fr/4.png"),
+                        require("@/assets/temp/fr/5.jpg"),
+                        require("@/assets/temp/fr/6.jpg"),
+                        require("@/assets/temp/fr/7.jpg"),
+                        require("@/assets/temp/fr/8.jpeg"),
+                        require("@/assets/temp/fr/9.jpg")
+                    ],
+                    time: '17:01'
+                },
+                {
+                    id: 1,
+                    avatar: require("@/assets/temp/avatar_two.jpg"),
+                    name: "momTrue",
+                    text: '我是文ssss字内容我收拾收拾收拾那你想叫你小激动呢小激动呢',
                     imgs: [
                         require("@/assets/temp/fr/1.jpg"),
                         require("@/assets/temp/fr/2.jpg"),

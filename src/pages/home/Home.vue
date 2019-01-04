@@ -1,6 +1,6 @@
 <template>
     <div>
-        <van-nav-bar title="vue聊" fixed class="nav-header"></van-nav-bar>
+        <van-nav-bar title="cui聊" fixed class="nav-header"></van-nav-bar>
         <v-touch tag="div" @swipeleft="onSwipeLeft(active)"  @swiperight="onSwipeRight(active)" class="tab-box"   ref="bscroll" :style="{height: scrollHeight + 'px'}">
             <chat-list v-if="active === 0"></chat-list>
             <address-list v-if="active === 1" :currentLetter="currentLetter"></address-list>

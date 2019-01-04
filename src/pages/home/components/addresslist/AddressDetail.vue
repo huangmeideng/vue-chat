@@ -173,6 +173,7 @@ export default {
     }
     .container >>> .van-nav-bar .van-icon {
         color: #FFFFFF;
+        margin-top: 5px;
     }
 
     .detail-info {

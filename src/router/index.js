@@ -4,6 +4,7 @@ import Home from '@/pages/home/Home'
 import ChatDetail from '@/pages/home/components/chat/ChatDetail'
 import AddressDetail from '@/pages/home/components/addresslist/AddressDetail'
 import CommunityDetail from '@/pages/home/components/community/CommunityDetail'
+import CommunityPublish from '@/pages/home/components/community/CommunityPublish'
 import Login from '@/pages/login/Login'
 
 Vue.use(Router)
@@ -26,14 +27,19 @@ export default new Router({
       component: ChatDetail
     },
     {
-      path: '/addresslist/addressdetail/:id',
+      path: '/addresslist/detail/:id',
       name: 'AddressDetail',
       component: AddressDetail
     },
     {
-      path: '/community/communitydetail/',
+      path: '/community/detail/',
       name: 'CommunityDetail',
       component: CommunityDetail
+    },
+    {
+      path: '/community/publish/',
+      name: 'CommunityPublish',
+      component: CommunityPublish
     }
   ]
 })

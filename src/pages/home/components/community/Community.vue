@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <router-link tag="div" to="/community/communitydetail/" class="community-friend">
+        <router-link tag="div" to="/community/detail/" class="community-friend">
             <img class="friend-icon" :src="friendIcon" alt="">
             <div class="friend-title">朋友圈</div>
             <div class="friend-tip">12</div>
