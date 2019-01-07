@@ -13,10 +13,14 @@
                             >
                 </van-field>
             </div>
-            <community-upload></community-upload>
+            <community-upload @uploadImg="onUploadImg" @emptyImg="onEmptyImg"></community-upload>
         </div>
         <div class="publish-footer">
-            footer
+            <div class="footer-item">
+                <van-icon class="item-icon" name="friends-o" size="25px"></van-icon>
+                <span class="item-text">谁可以看</span>
+                <van-icon class="item-arrow" name="arrow" size="25px"></van-icon>
+            </div>
         </div>
     </div>
 </template>
@@ -35,6 +39,7 @@ export default {
     data() {
         return {
             publishText: '',
+            hasImg: false,
             autoSizeOption: {
                 minHeight: 100
             },
@@ -43,7 +48,14 @@ export default {
     },
     watch: {
         publishText () {
-            if (this.publishText) {
+            if (this.publishText || this.hasImg) {
+                this.buttonAble = false
+            } else {
+                this.buttonAble = true
+            }
+        },
+        hasImg () {
+            if (this.hasImg || this.publishText) {
                 this.buttonAble = false
             } else {
                 this.buttonAble = true
@@ -53,6 +65,16 @@ export default {
     methods: {
         onBack () {
             this.$router.go(-1)
+        },
+        onUploadImg (val) {
+            if (val === 1) {
+                this.hasImg = true
+            }
+        },
+        onEmptyImg (val) {
+            if (val === 2) {
+                this.hasImg = false
+            }
         }
     }
 }
@@ -87,6 +109,13 @@ export default {
     }
     .body-text {
         margin-bottom: 10px;
+    }
+    .publish-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
     }
 </style>
 
