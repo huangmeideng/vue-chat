@@ -49,7 +49,7 @@ export default {
             this.imgs.push(file.content)
             //当存在图片数据时向父组件传值
             if (this.imgs.length > 0){
-                this.$emit('uploadImg',1)
+                this.$emit('uploadImg',file.content)
             }
         },
         //点击预览图片
@@ -64,10 +64,7 @@ export default {
         //删除图片
         onDeleteImg (index) {
             this.imgs.splice(index,1)
-            //当不存在图片数据时向父组件传值
-            if ( this.imgs.length == 0) {
-                this.$emit('emptyImg',2)
-            }
+            this.$emit('emptyImg',index)
         }
     }
 }

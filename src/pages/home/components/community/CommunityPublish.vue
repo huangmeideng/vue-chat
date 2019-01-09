@@ -16,11 +16,20 @@
             <community-upload @uploadImg="onUploadImg" @emptyImg="onEmptyImg"></community-upload>
         </div>
         <div class="publish-footer">
-            <div class="footer-item">
+            <router-link  tag="div" 
+                        class="footer-item" 
+                        to="/community/scope/">
                 <van-icon class="item-icon" name="friends-o" size="25px"></van-icon>
                 <span class="item-text">谁可以看</span>
-                <van-icon class="item-arrow" name="arrow" size="25px"></van-icon>
-            </div>
+                <van-icon class="item-arrow" name="arrow" size="20px"></van-icon>
+            </router-link>
+            <router-link  tag="div" 
+                        class="footer-item"  
+                        to="/common/location/">
+                <van-icon class="item-icon" name="location-o" size="25px"></van-icon>
+                <span class="item-text">{{publishLocation}}</span>
+                <van-icon class="item-arrow" name="arrow" size="20px"></van-icon>
+            </router-link>
         </div>
     </div>
 </template>
@@ -28,6 +37,7 @@
 <script>
 import { Icon, Field, Button } from 'vant'
 import CommunityUpload from './CommunityUpload'
+import store from '@/store'
 export default {
     name: 'CommunityPublish',
     components: {
@@ -39,11 +49,31 @@ export default {
     data() {
         return {
             publishText: '',
+            publishImgs: [],
             hasImg: false,
             autoSizeOption: {
                 minHeight: 100
             },
-            buttonAble: true
+            buttonAble: true,
+            footerData: [
+                {
+                    id: 0,
+                    to: '/community/scope/',
+                    iconName: 'friends-o',
+                    textValue: '谁可以看',
+                },
+                {
+                    id: 1,
+                    to: '/common/location/',
+                    iconName: 'location-o',
+                    textValue: '所在位置'
+                }
+            ]
+        }
+    },
+    computed: {
+        publishLocation () {
+            return store.state.location
         }
     },
     watch: {
@@ -67,12 +97,16 @@ export default {
             this.$router.go(-1)
         },
         onUploadImg (val) {
-            if (val === 1) {
+            if ( this.hasImg ){
+                this.publishImgs.push(val)
+            } else{
+                this.publishImgs.push(val)
                 this.hasImg = true
             }
         },
         onEmptyImg (val) {
-            if (val === 2) {
+            this.publishImgs.splice(val,1)
+            if (val === 0) {
                 this.hasImg = false
             }
         }
@@ -115,7 +149,28 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 10px;
+        background-color: #F2F2F2;
+    }
+    .footer-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        background-color: #FFFFFF;
+        border-bottom: 1px solid #D9D9D9;
+    }
+    .item-icon {
+        width: 30px;
+        margin-left: 10px;
+    }
+    .item-text {
+        width: 280px;
+        color: #28B2F2;
+        margin-left: 10px;
+    }
+    .item-arrow {
+        margin-left: 10px;
     }
 </style>
 

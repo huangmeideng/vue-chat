@@ -5,6 +5,8 @@ import ChatDetail from '@/pages/home/components/chat/ChatDetail'
 import AddressDetail from '@/pages/home/components/addresslist/AddressDetail'
 import CommunityDetail from '@/pages/home/components/community/CommunityDetail'
 import CommunityPublish from '@/pages/home/components/community/CommunityPublish'
+import CommunityScope from '@/pages/home/components/community/CommunityScope'
+import CommonLocation from '@/common/CommonLocation'
 import Login from '@/pages/login/Login'
 
 Vue.use(Router)
@@ -40,6 +42,16 @@ export default new Router({
       path: '/community/publish/',
       name: 'CommunityPublish',
       component: CommunityPublish
+    },
+    {
+      path: '/community/scope/',
+      name: 'CommunityScope',
+      component: CommunityScope
+    },
+    {
+      path: '/common/location/',
+      name: 'CommonLocation',
+      component: CommonLocation
     }
   ]
 })

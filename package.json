@@ -14,10 +14,13 @@
   },
   "dependencies": {
     "better-scroll": "^1.13.2",
+    "gcoord": "^0.2.0",
     "vant": "^1.5.0",
     "vue": "^2.5.2",
+    "vue-baidu-map": "^0.21.16",
     "vue-router": "^3.0.1",
-    "vue-touch": "^2.0.0-beta.4"
+    "vue-touch": "^2.0.0-beta.4",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
