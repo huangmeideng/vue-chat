@@ -20,7 +20,7 @@
                         class="footer-item" 
                         to="/community/scope/">
                 <van-icon class="item-icon" name="friends-o" size="25px"></van-icon>
-                <span class="item-text">谁可以看</span>
+                <span class="item-text">{{this.scopeType}}</span>
                 <van-icon class="item-arrow" name="arrow" size="20px"></van-icon>
             </router-link>
             <router-link  tag="div" 
@@ -73,8 +73,22 @@ export default {
     },
     computed: {
         ...mapState({
-            location: 'location'
+            location: 'location',
+            scope: 'scope'
         }),
+        scopeType () {
+            switch (this.scope) {
+                case '1':
+                    return '朋友'
+                    break
+                case '2':
+                    return '公开'
+                    break
+                case '3':
+                    return '私密'
+                    break
+            }
+        }
     },
     watch: {
         publishText () {

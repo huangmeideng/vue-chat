@@ -1,5 +1,7 @@
 let defaultLocation = '所在位置'
+let defaultScope = '1'
 
 export default {
-    location: defaultLocation
+    location: defaultLocation,
+    scope: defaultScope
 }

@@ -1,5 +1,8 @@
 export default {
-    dispatchLocation ( ctx, location ){
+    dispatchLocation (ctx,location){
         ctx.commit('commitLocation',location)
+    },
+    dispatchScope (ctx,scope){
+        ctx.commit('commitScope',scope)
     }
 }
