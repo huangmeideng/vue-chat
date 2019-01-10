@@ -4,5 +4,8 @@ export default {
     },
     commitScope (state,scope) {
         state.scope = scope
+    },
+    commitTabActive (state,tabActive) {
+        state.tabActive = tabActive
     }
 }

@@ -1,15 +1,15 @@
 <template>
     <div>
         <van-nav-bar title="cui聊" fixed class="nav-header"></van-nav-bar>
-        <v-touch tag="div" @swipeleft="onSwipeLeft(active)"  @swiperight="onSwipeRight(active)" class="tab-box"   ref="bscroll" :style="{height: scrollHeight + 'px'}">
-            <chat-list v-if="active === 0"></chat-list>
-            <address-list v-if="active === 1" :currentLetter="currentLetter"></address-list>
-            <community v-if="active === 2"></community>
-            <my v-if="active === 3"></my>
+        <v-touch tag="div" @swipeleft="onSwipeLeft(currentActive)"  @swiperight="onSwipeRight(currentActive)" class="tab-box"   ref="bscroll" :style="{height: scrollHeight + 'px'}">
+            <chat-list v-if="this.tabActive === 0"></chat-list>
+            <address-list v-if="this.tabActive === 1" :currentLetter="currentLetter"></address-list>
+            <community v-if="this.tabActive === 2"></community>
+            <my v-if="this.tabActive === 3"></my>
         </v-touch>
         <common-letter-box v-show="showLetterBox" :letter="currentLetter"></common-letter-box>
-        <common-letter v-show="active === 1" @change="onClickLetter" @touchLetter="onTouchLetter" @touchStart="onTouchBoxStart" @touchEnd="onTouchBoxEnd"></common-letter>
-        <van-tabbar v-model="active" @change="onChangeTab">
+        <common-letter v-show="this.tabActive === 1" @change="onClickLetter" @touchLetter="onTouchLetter" @touchStart="onTouchBoxStart" @touchEnd="onTouchBoxEnd"></common-letter>
+        <van-tabbar v-model="currentActive" @change="onChangeTab">
             <van-tabbar-item icon="chat-o">聊天</van-tabbar-item>
             <van-tabbar-item icon="phone-circle-o" dot>通讯录</van-tabbar-item>
             <van-tabbar-item icon="underway-o" info="2">社区</van-tabbar-item>
@@ -27,6 +27,7 @@ import My from './components/my/My'
 import Bscroll from "better-scroll"
 import CommonLetter from '../../common/CommonLetter'
 import CommonLetterBox from '../../common/CommonLetterBox'
+import { mapState, mapActions } from 'vuex'
 export default {
     name: "Home",
     components: {
@@ -56,6 +57,15 @@ export default {
     computed: {
         scrollHeight () {
             return this.clientHeight - 46 - 50
+        },
+        ...mapState(['tabActive']),
+        currentActive: {
+            get () {
+                return this.tabActive
+            },
+            set (val) {
+                this.dispatchTabActive(val)
+            }
         }
     },
     watch: {
@@ -90,10 +100,12 @@ export default {
         /**
          * 点击底部Tab事件
          */
-        onChangeTab () {
+        onChangeTab (e) {
+            this.dispatchTabActive(e)
             this.scroll.destroy()
             this.initScroll()
         },
+        ...mapActions(['dispatchTabActive']),
         /**
          * 左滑事件
          */
@@ -101,7 +113,8 @@ export default {
             if ( e >= 3 ) {
                 return;
             } else{
-                this.active = e + 1
+                //this.active = e + 1
+                this.dispatchTabActive(e+1)
                 this.scroll.destroy()
                 this.initScroll()
             }
@@ -113,7 +126,8 @@ export default {
             if ( e <= 0 ) {
                 return;
             } else{
-                this.active = e - 1
+                //this.active = e - 1
+                this.dispatchTabActive(e-1)
                 this.scroll.destroy()
                 this.initScroll()
             }

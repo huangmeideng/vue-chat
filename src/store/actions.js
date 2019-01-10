@@ -4,5 +4,8 @@ export default {
     },
     dispatchScope (ctx,scope){
         ctx.commit('commitScope',scope)
+    },
+    dispatchTabActive (ctx,tabActive){
+        ctx.commit('commitTabActive',tabActive)
     }
 }

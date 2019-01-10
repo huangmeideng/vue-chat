@@ -6,7 +6,7 @@
             <van-button class="scope-button" @click="onConfirmScope">确定</van-button>
         </div>
         <div class="scope-body">
-            <van-radio-group v-model="scopeValue">
+            <van-radio-group v-model="currentScope">
                 <van-cell-group>
                     <van-cell title="朋友" clickable @click="onChangeScope('1')">
                         <van-radio name="1" />
@@ -25,7 +25,7 @@
 
 <script>
 import { Icon, Button, Cell, CellGroup, RadioGroup, Radio} from 'vant'
-import { mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
     name: 'CommunityScope',
     components: {
@@ -40,6 +40,17 @@ export default {
         return {
             headerTitle: '谁可以看',
             scopeValue: '1',
+        }
+    },
+    computed: {
+        ...mapState(['scope']),
+        currentScope: {
+            get () {
+                return this.scope
+            },
+            set (val) {
+                this.dispatchScope(val)
+            }
         }
     },
     methods: {
