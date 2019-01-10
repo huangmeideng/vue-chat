@@ -7,6 +7,7 @@ import CommunityDetail from '@/pages/home/components/community/CommunityDetail'
 import CommunityPublish from '@/pages/home/components/community/CommunityPublish'
 import CommunityScope from '@/pages/home/components/community/CommunityScope'
 import CommonLocation from '@/common/CommonLocation'
+import MySet from '@/pages/home/components/my/MySet'
 import Login from '@/pages/login/Login'
 
 Vue.use(Router)
@@ -52,6 +53,11 @@ export default new Router({
       path: '/common/location/',
       name: 'CommonLocation',
       component: CommonLocation
+    },
+    {
+      path: '/my/myset/',
+      name: 'MySet',
+      component: MySet
     }
   ]
 })
