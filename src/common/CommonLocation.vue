@@ -19,9 +19,9 @@
 
 <script>
 import loadBMap from '@/assets/style/js/map.js'
-import store from '@/store'
 import { NavBar, Dialog, Icon } from 'vant'
 import gcoord from 'gcoord'
+import { mapActions } from 'vuex'
 export default {
     name: 'CommonLocation',
     components: {
@@ -45,9 +45,11 @@ export default {
         },
         //选择地理位置
         onSetLocation (location) {
-            store.commit('changeLocation',location)
+            //this.$store.dispatch('dispatchLocation',location)
+            this.dispatchLocation(location)
             this.$router.back(-1)
         },
+        ...mapActions(['dispatchLocation']),
         //dialog通用方法
         commonDialog (message) {
             Dialog.alert({

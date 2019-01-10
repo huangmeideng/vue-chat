@@ -27,7 +27,7 @@
                         class="footer-item"  
                         to="/common/location/">
                 <van-icon class="item-icon" name="location-o" size="25px"></van-icon>
-                <span class="item-text">{{publishLocation}}</span>
+                <span class="item-text">{{this.location}}</span>
                 <van-icon class="item-arrow" name="arrow" size="20px"></van-icon>
             </router-link>
         </div>
@@ -37,7 +37,7 @@
 <script>
 import { Icon, Field, Button } from 'vant'
 import CommunityUpload from './CommunityUpload'
-import store from '@/store'
+import { mapState } from 'vuex'
 export default {
     name: 'CommunityPublish',
     components: {
@@ -72,9 +72,9 @@ export default {
         }
     },
     computed: {
-        publishLocation () {
-            return store.state.location
-        }
+        ...mapState({
+            location: 'location'
+        }),
     },
     watch: {
         publishText () {

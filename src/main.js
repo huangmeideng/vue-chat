@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vant from 'vant'
+import store from './store/index'
 import VueTouch from 'vue-touch'
 import 'vant/lib/index.css'
 import './assets/style/css/reset.css'
@@ -15,6 +16,7 @@ Vue.use(Vant).use(VueTouch,{name:'v-touch'})
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
