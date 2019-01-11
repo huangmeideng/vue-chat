@@ -8,7 +8,7 @@ import CommunityPublish from '@/pages/home/components/community/CommunityPublish
 import CommunityScope from '@/pages/home/components/community/CommunityScope'
 import CommonLocation from '@/common/CommonLocation'
 import MySet from '@/pages/home/components/my/MySet'
-import Login from '@/pages/login/Login'
+import Index from '@/pages/index/Index'
 
 Vue.use(Router)
 
@@ -16,8 +16,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Login',
-      component: Login
+      name: 'Index',
+      component: Index
     },
     {
       path: '/home/',

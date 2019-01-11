@@ -13,6 +13,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "better-scroll": "^1.13.2",
     "gcoord": "^0.2.0",
     "vant": "^1.5.0",

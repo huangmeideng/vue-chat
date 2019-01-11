@@ -8,9 +8,10 @@ import store from './store/index'
 import VueTouch from 'vue-touch'
 import 'vant/lib/index.css'
 import './assets/style/css/reset.css'
+import animate from 'animate.css'
 
 Vue.config.productionTip = false
-Vue.use(Vant).use(VueTouch,{name:'v-touch'})
+Vue.use(Vant).use(VueTouch,{name:'v-touch'}).use(animate)
 
 /* eslint-disable no-new */
 new Vue({
