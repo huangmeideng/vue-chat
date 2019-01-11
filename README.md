@@ -4,18 +4,25 @@
 
 
 ## 相关界面
+
 ### 聊天列表页
 <img src="./static/readmePic/1.png" style="width: 250px;"/>
+
 ### 对话框页
 <img src="./static/readmePic/7.png" style="width: 250px;"/>
+
 ### 通讯录页
 <img src="./static/readmePic/2.png" style="width: 250px;"/>
+
 ### 查看他人信息页
 <img src="./static/readmePic/3.png" style="width: 250px;"/>
+
 ### 朋友圈页
 <img src="./static/readmePic/4.png" style="width: 250px;"/>
+
 ### 发表页
 <img src="./static/readmePic/5.png" style="width: 250px;"/>
+
 ### 个人中心页
 <img src="./static/readmePic/6.png" style="width: 250px;"/>
 
