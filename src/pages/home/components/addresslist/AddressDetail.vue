@@ -82,8 +82,8 @@ export default {
         return {
             testData: {
                 id: 1,
-                name: '孙大翠',
-                phone: '18362985538',
+                name: '孙sui',
+                phone: '18362985537',
                 imgUrl: require("@/assets/temp/cui.jpeg"),
                 gender: 1,
                 area: '福建 宁德',

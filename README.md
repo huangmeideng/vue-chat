@@ -1,6 +1,24 @@
 # vue-chat
 
-> 聊天前端demo,基于vue
+> 基于vue仿微信单页应用
+
+
+## 相关界面
+### 聊天列表页
+<img src="./static/readmePic/1.png" />
+### 对话框页
+<img src="./static/readmePic/7.png" />
+### 通讯录页
+<img src="./static/readmePic/2.png" />
+### 查看他人信息页
+<img src="./static/readmePic/3.png" />
+### 朋友圈页
+<img src="./static/readmePic/4.png" />
+### 发表页
+<img src="./static/readmePic/5.png" />
+### 个人中心页
+<img src="./static/readmePic/6.png" />
+
 
 ## Build Setup
 
